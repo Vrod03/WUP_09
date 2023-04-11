@@ -29,25 +29,50 @@ Fish <- read.csv(file= "Fish.csv", header=TRUE)
 
 ```{r}
 Perch <- filter (Fish, Species=="Perch")
+Perch <- select(Perch, -(Species))
 ```
 
 
 
 ### Best Models
 
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Perch,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="topright",main="Adjusted R^2")
+```
+
 ### Best Two regressor model
 
+Height and width is the best two regressor model from the chart above. This is because the adjusted r squared is the highest.
 
 ## Pike
 
+
 ### Best Models
 
+
 ### Best Two regressor model
+
+
 
 ## Roach
 
+
 ### Best Models
 
+
 ### Best Two regressor model
+
 
 ## Final Summary Statements
