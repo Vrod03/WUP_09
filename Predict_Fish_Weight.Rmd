@@ -56,6 +56,14 @@ subsets(regsubsets.out,statistic="adjr2",legend="topright",main="Adjusted R^2")
 
 Height and width is the best two regressor model from the chart above. This is because the adjusted r squared is the highest.
 
+```{r}
+best.model <- lm(Weight~Height+Width,data=Perch)
+summary(best.model)
+```
+
+The best model and best 2 regressor model is the same being height and width.
+
+
 ## Pike
 
 
