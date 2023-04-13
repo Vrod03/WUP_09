@@ -63,6 +63,15 @@ summary(best.model)
 
 The best model and best 2 regressor model is the same being height and width.
 
+##Five Element Perch Model
+```{r}
+best.Perch_Model <- lm(Weight ~ Height + Width, data = Perch)
+five_element_Perch_model <- lm(Weight ~ .,data = Perch)
+anova(best.Perch_Model, five_element_Perch_model)
+```
+
+This data shows that between the best perch model and the five element model there is no major statistical difference.
+
 
 ## Pike
 
