@@ -99,9 +99,15 @@ subsets(regsubsets.out,statistic="adjr2",legend="topleft",main="Adjusted R^2")
 ```
 
 
-
 ### Best Two regressor model
 
+```{r}
+Pike_best_Model <- lm(Weight ~.,data= Pike)
+Pike_best_2_R_Model <- lm(Weight~Length1 + Length3, data=Pike)
+anova(Pike_best_Model, Pike_best_2_R_Model)
+```
+
+This data shows that its statistically significant. 
 
 
 ## Roach
