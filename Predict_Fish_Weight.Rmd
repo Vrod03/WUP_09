@@ -107,7 +107,7 @@ Pike_best_2_R_Model <- lm(Weight~Length1 + Length3, data=Pike)
 anova(Pike_best_Model, Pike_best_2_R_Model)
 ```
 
-This data shows that its statistically significant. 
+This data shows that its statistically significant. Since the p-value is less than 0.05 they are different at a significantly level lower than 0.05. Model with all factors is better than just L1 and L3.
 
 
 ## Roach
