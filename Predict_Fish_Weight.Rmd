@@ -146,15 +146,24 @@ The best model is the 2 element model. The worst model is the 5 element model be
 ### Best Two regressor model
 
 ```{r}
-Roach_best_Model <- lm(Weight ~.,data= Raoch)
-Roach_best_2_R_Model <- lm(Weight~Length1 + Length3, data=Roach)
-anova(Roach_best_Model, Roach_best_2_R_Model)
+Roach_best_Model <- lm(Weight~Length3+Width,data= Roach)
+summary(Roach_best_Model)
 ```
 
+The Roach best model.
+
+
+```{r}
+Roach_best_model <- lm(Weight~Length3+Width,data= Roach)
+five_element_Roach_model <- lm(Weight~., data=Roach)
+anova(Roach_best_model, five_element_Roach_model)
+```
+
+Comparing best 2 element roach model with the worst model which is the five element model. The comparisons gives a p-value of 0.9 which means that there inst a significant difference.
 
 
 ## Final Summary Statements
 
-
+There was only 1 statistical difference when done with anova. The Pike model had statistical difference. In all comparisons the only one with signifcance below 0.05 was the pike model. 
 
 
