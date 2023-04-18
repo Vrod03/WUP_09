@@ -50,6 +50,8 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="topright",main="Adjusted R^2")
 ```
 
+The worst model is 1 element model. The best model is 2 element model.
+
 ### Best Two regressor model
 
 Height and width is the best two regressor model from the chart above. This is because the adjusted r squared is the highest.
@@ -98,6 +100,8 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="topleft",main="Adjusted R^2")
 ```
 
+The worst model is 1 element model. The best model is 5 element model.
+
 
 ### Best Two regressor model
 
@@ -133,14 +137,19 @@ regsubsets.out <-
 summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
 library(car)
-subsets(regsubsets.out,statistic="adjr2",legend="topleft",main="Adjusted R^2")
+subsets(regsubsets.out,statistic="adjr2",legend="bottomleft",main="Adjusted R^2")
 ```
 
+The best model is the 2 element model. The worst model is the 5 element model because its at the bottom.
 
 
 ### Best Two regressor model
 
-
+```{r}
+Roach_best_Model <- lm(Weight ~.,data= Raoch)
+Roach_best_2_R_Model <- lm(Weight~Length1 + Length3, data=Roach)
+anova(Roach_best_Model, Roach_best_2_R_Model)
+```
 
 
 
